@@ -68,6 +68,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-域名绑定问题-jQuery库的优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/17/域名绑定问题-jQuery库的优化/" class="article-date">
+  <time datetime="2016-08-17T15:23:36.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/17/域名绑定问题-jQuery库的优化/">域名绑定问题+jQuery库的优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="｀hexo-deploy｀CNAME消失问题解决"><a href="#｀hexo-deploy｀CNAME消失问题解决" class="headerlink" title="## ｀hexo deploy｀CNAME消失问题解决"></a>## ｀hexo deploy｀CNAME消失问题解决</h1><p>在本地的Hexo的source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，<br>如：wuxiang.tech（注意前面不添加http://）</p>
+<h1 id="jQuery库的优化"><a href="#jQuery库的优化" class="headerlink" title="## jQuery库的优化"></a>## jQuery库的优化</h1><p>国内提供jQuery的互联网公司很多，大家耳熟能详的互联网公司基本都免费提供了常用JS库的CDN加速服务。百度的服务的速度在国内国外都比较理想，因此这里将jQuery替换成百度的。<br>另外，在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份。</p>
+<p>要修改的是themes/landscape/layout/_partial/after-footer.ejs<br>这个文件，将17行的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>替换为如下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"> //&lt;![CDATA[</div><div class="line"> <span class="keyword">if</span> (typeof jQuery == <span class="string">'undefined'</span>) &#123;</div><div class="line"> document.write(unescape(<span class="string">"%3Cscript src='/js/jquery-2.1.1.min.js' type='text/javascript'%3E%3C/script%3E"</span>));</div><div class="line"> &#125;</div><div class="line"> // ]]&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>这里不但将Google的jQuery替换成了百度的，随后还进行了一个判断，如果获取百度的jQuery失败，则使用本网站自己的jQuery。<br>为了让这段代码有效，下载合适版本的jQuery并将其放到themes/landscape/source/js/目录下，将其命名为jquery-2.1.1.min.js。</p>
+<p>还有一点需要特别注意，那就是jQuery这个文件在hexo生产博客时会被解析，因此一定要将jQuery文件代码中的注释删去，否则会导致博客无法生成。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="wuxiang.tech/2016/08/17/域名绑定问题-jQuery库的优化/" data-id="cirz2kqb70000h1lt7d6o7b1k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-记录使用Hexo-GithubPages构建独立博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/16/记录使用Hexo-GithubPages构建独立博客/" class="article-date">
@@ -99,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wuxiang.tech/2016/08/16/记录使用Hexo-GithubPages构建独立博客/" data-id="ciryxw8z50001leltuqsxqars" class="article-share-link">Share</a>
+      <a data-url="wuxiang.tech/2016/08/16/记录使用Hexo-GithubPages构建独立博客/" data-id="cirz2kqbc0001h1ltdgeq0rss" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wuxiang.tech/2016/08/15/hello-world/" data-id="ciryxw8yz0000leltftqm58yh" class="article-share-link">Share</a>
+      <a data-url="wuxiang.tech/2016/08/15/hello-world/" data-id="cirz2kqbe0002h1ltn2fjy83l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,6 +225,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/08/17/域名绑定问题-jQuery库的优化/">域名绑定问题+jQuery库的优化</a>
+          </li>
         
           <li>
             <a href="/2016/08/16/记录使用Hexo-GithubPages构建独立博客/">记录使用Hexo+GithubPages构建独立博客</a>
