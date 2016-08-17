@@ -94,11 +94,12 @@
 <p>替换为如下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line"> //&lt;![CDATA[</div><div class="line"> <span class="keyword">if</span> (typeof jQuery == <span class="string">'undefined'</span>) &#123;</div><div class="line"> document.write(unescape(<span class="string">"%3Cscript src='/js/jquery-2.1.1.min.js' type='text/javascript'%3E%3C/script%3E"</span>));</div><div class="line"> &#125;</div><div class="line"> // ]]&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>这里不但将Google的jQuery替换成了百度的，随后还进行了一个判断，如果获取百度的jQuery失败，则使用本网站自己的jQuery。<br>为了让这段代码有效，下载合适版本的jQuery并将其放到themes/landscape/source/js/目录下，将其命名为jquery-2.1.1.min.js。</p>
 <p>还有一点需要特别注意，那就是jQuery这个文件在hexo生产博客时会被解析，因此一定要将jQuery文件代码中的注释删去，否则会导致博客无法生成。</p>
-
+<p>然后删除引用Google字体的代码，要编辑的文件是themes/landscape/layout/_partial/head.ejs，将其中的下列代码删除。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"http://fonts.googleapis.com/css?family=Source+Code+Pro"</span> rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="wuxiang.tech/2016/08/17/域名绑定问题-jQuery库的优化/" data-id="cirz3f5dx0001nult8yef7y3z" class="article-share-link">Share</a>
+      <a data-url="wuxiang.tech/2016/08/17/域名绑定问题-jQuery库的优化/" data-id="cirz3n9o10001piltwu2o7e3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wuxiang.tech/2016/08/16/记录使用Hexo-GithubPages构建独立博客/" data-id="cirz3f5e00002nultg2bxts0x" class="article-share-link">Share</a>
+      <a data-url="wuxiang.tech/2016/08/16/记录使用Hexo-GithubPages构建独立博客/" data-id="cirz3n9o40002piltxpewwami" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wuxiang.tech/2016/08/15/hello-world/" data-id="cirz3f5ds0000nulth68n0obf" class="article-share-link">Share</a>
+      <a data-url="wuxiang.tech/2016/08/15/hello-world/" data-id="cirz3n9nx0000pilt1mmijf3u" class="article-share-link">Share</a>
       
       
     </footer>
